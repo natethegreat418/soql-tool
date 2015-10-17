@@ -1,0 +1,21 @@
+{
+  "name": "soqltool",
+  "version": "0.0.0",
+  "homepage": "https://github.com/omniphx",
+  "authors": [
+    "Matthew Mitchener <mattjmitchener@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular-bootstrap": "~0.11.0",
+    "bootstrap": "~3.2.0",
+    "font-awesome": "~4.2.0",
+    "angular-route": "~1.3.10",
+    "colors": "~2.0.0",
+    "ng-grid": "~2.0.14"
+  },
+  "resolutions": {
+    "font-awesome": "~4.2.0"
+  }
+}
