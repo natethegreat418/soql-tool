@@ -13,12 +13,19 @@ var elixir = require('laravel-elixir');
 
 elixir(function(mix) {
     mix.less('app.less');
-});
-
-elixir(function(mix) {
     mix.scriptsIn('resources/assets/js','public/js/app.js');
-});
 
-elixir(function(mix) {
+    //libraries
     mix.copy('bower_components/angular/angular.js', 'public/js');
+    mix.copy('bower_components/lodash/lodash.js', 'public/js');
+
+    //ui-grid
+    mix.copy('bower_components/angular-ui-grid/ui-grid.js', 'public/js');
+    mix.copy('bower_components/angular-ui-grid/ui-grid.min.css', 'public/css');
+    mix.copy('bower_components/angular-ui-grid/ui-grid.svg', 'public/css');
+    mix.copy('bower_components/angular-ui-grid/ui-grid.ttf', 'public/css');
+    mix.copy('bower_components/angular-ui-grid/ui-grid.woff', 'public/css');
+    mix.copy('bower_components/angular-ui-grid/ui-grid.eot', 'public/css');
+
+
 });

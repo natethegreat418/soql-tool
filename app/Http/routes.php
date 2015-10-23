@@ -12,20 +12,6 @@
 */
 
 Route::get('/', function () {
-    if (view()->exists('home')) {
-        return view('home');
-    } else {
-        return 'no view found';
-    }
-    // return view('home');
-});
-
-Route::get('/home', function () {
-    return view('home');
-    // return 'home';
-});
-
-Route::get('/test', function () {
     return view('test');
 });
 

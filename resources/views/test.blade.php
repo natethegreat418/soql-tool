@@ -5,7 +5,10 @@
     <title>Test</title>
       <title>Laravel</title>
       <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+      <link rel="stylesheet" href="{{ asset('css/ui-grid.min.css') }}">
       <script src="{{ asset('js/angular.js') }}"></script>
+      <script src="{{ asset('js/ui-grid.js') }}"></script>
+      <script src="{{ asset('js/lodash.js') }}"></script>
       <script src="{{ asset('js/app.js') }}"></script>
   </head>
   <body>
@@ -13,21 +16,18 @@
       <h1>SOQL tool</h1>
       <div>
         <form>
-          <textarea class="form-control" rows="3" ng-model="query"></textarea>
-          <button type="submit" class="btn btn-default" ng-click="request(query)">query</button>
+          <div class="form-group">
+            <textarea class="form-control" rows="3" ng-model="query"></textarea>
+            <br>
+            <button type="submit" class="btn btn-primary" ng-click="request(query)" >Query</button>
+          </div>
         </form>
       </div>
-      <div>
-        <table class="table table-striped">
-          <th>
-            <td>@{{result.$$state.value.records.keys()}}</td>
-          </th>
-          <tr ng-repeat="row in result.$$state.value.records">
-            <td>@{{row.Id}}</td>
-          </tr>
-        </table>
-      </div>
-      <div ng-bind="result.$$state.value.records"></div>
+      {{-- <div ng-hide="hideGrid"> --}}
+        <div ui-grid="gridOptions" ui-grid-core class="myGrid"></div>
+      {{-- </div> --}}
+      <div>@{{gridAPI}}</div>
     </div>
+
   </body>
 </html>
