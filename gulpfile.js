@@ -18,6 +18,7 @@ elixir(function(mix) {
     //libraries
     mix.copy('bower_components/angular/angular.js', 'public/js');
     mix.copy('bower_components/lodash/lodash.js', 'public/js');
+    mix.copy('bower_components/angular-touch/angular-touch.js', 'public/js');
 
     //ui-grid
     mix.copy('bower_components/angular-ui-grid/ui-grid.js', 'public/js');

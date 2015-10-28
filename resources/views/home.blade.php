@@ -1,50 +1,36 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Laravel</title>
+<html lang="en" ng-app="soqlTool">
+  <head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+      <title>Laravel</title>
+      <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+      <link rel="stylesheet" href="{{ asset('css/ui-grid.min.css') }}">
+      <script src="{{ asset('js/angular.js') }}"></script>
+      <script src="{{ asset('js/angular-touch.js') }}"></script>
+      <script src="{{ asset('js/ui-grid.js') }}"></script>
+      <script src="{{ asset('js/lodash.js') }}"></script>
+      <script src="{{ asset('js/app.js') }}"></script>
+  </head>
+  <body>
+    <div class="container" ng-controller="QueryCtrl">
+      <h1>SOQL tool</h1>
+      <div>
+        <form>
+          <div class="form-group">
+            <textarea class="form-control" rows="3" ng-model="query"></textarea>
+            <br>
+            <button type="submit" class="btn btn-primary" ng-click="request(query)" >Query</button>
+            <button type="submit" class="btn btn-primary" ng-click="refreshCols()" >Refresh</button>
+            <button type="submit" class="btn btn-danger" ng-click="removeCol()" >Remove</button>
+          </div>
+        </form>
+      </div>
+      {{-- <div ng-hide="hideGrid"> --}}
+        <div ui-grid="gridOptions" ui-grid-core class="myGrid"></div>
+      {{-- </div> --}}
+      <div>@{{gridAPI}}</div>
+    </div>
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="{{ elixir('css/app.css') }}">
-
-        <style>
-            html, body {
-                height: 100%;
-            }
-
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
-
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
-
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 96px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">Laravel 5</div>
-            </div>
-
-            <div>
-                <textarea class="form-control" rows="3"></textarea>
-            </div>
-        </div>
-    </body>
+  </body>
 </html>
