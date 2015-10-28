@@ -29,7 +29,6 @@
       {{-- <div ng-hide="hideGrid"> --}}
         <div ui-grid="gridOptions" ui-grid-core class="myGrid"></div>
       {{-- </div> --}}
-      <div>@{{gridAPI}}</div>
     </div>
 
   </body>

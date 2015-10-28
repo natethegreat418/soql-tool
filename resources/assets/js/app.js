@@ -28,25 +28,27 @@ var queryCtrl = app.controller('QueryCtrl', ['$scope','$http','uiGridConstants',
             $scope.columns.push({field : key});
           });
           console.log($scope.columns);
-          $scope.gridOptions.columns = $scope.columns;
+          $scope.gridOptions.columnDefs = $scope.columns;
         }
 
     });
 
     // var promise = apiService.get('api/query/'+$scope.query);
-    // promise.then(function(data){});
+    // promise.then(function(data){
+    //   var data = data.data.records;
+    //   for(i = 0; i < data.length; i++){
+    //     delete data[i].attributes;
+    //   }
+    //   $scope.gridOptions.data = data;
+
+    //   if(data.length !== 0){
+    //     $scope.columns = [];
+    //     angular.forEach(data[0], function(value, key) {
+    //       $scope.columns.push({field : key});
+    //     });
+    //     $scope.gridOptions.columnDefs = $scope.columns;
+    //   }
+    // });
   };
-
-  $scope.refreshCols = function()
-  {
-    $scope.gridApi.core.notifyDataChange(uiGridConstants.dataChange.COLUMN);
-  }
-
-  $scope.removeCol = function()
-  {
-    $scope.columns.splice(0, 1);
-    console.log($scope.columns);
-  }
-
 
 }]);
