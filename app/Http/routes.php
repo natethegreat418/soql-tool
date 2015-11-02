@@ -22,4 +22,18 @@ Route::get('/test', function () {
 Route::group(['prefix' => 'api'], function()
 {
     Route::get('/query/{query}', 'SalesforceController@query');
+    Route::get('/testData', function(){
+        return [
+            "records" => [
+                [
+                    "name" => "Matthew",
+                    "city" => "Boston"
+                ],
+                [
+                   "name" => "John",
+                   "city" => "Concord"
+                ]
+            ]
+        ];
+    });
 });

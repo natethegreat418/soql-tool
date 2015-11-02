@@ -15,7 +15,9 @@
     "colors": "~2.0.0",
     "angular-ui-grid": "~3.0.7",
     "lodash": "~3.10.1",
-    "angular-touch": "~1.4.7"
+    "angular-touch": "~1.4.7",
+    "pdfmake": "~0.1.20",
+    "CSV-JS": "csv-js#~1.1.1"
   },
   "resolutions": {
     "font-awesome": "~4.2.0"

@@ -9,8 +9,23 @@
       <script src="{{ asset('js/angular.js') }}"></script>
       <script src="{{ asset('js/angular-touch.js') }}"></script>
       <script src="{{ asset('js/ui-grid.js') }}"></script>
+      <script src="{{ asset('js/csv.js') }}"></script>
+      <script src="{{ asset('js/vfs_fonts.js') }}"></script>
+      <script src="{{ asset('js/pdfmake.js') }}"></script>
       <script src="{{ asset('js/lodash.js') }}"></script>
       <script src="{{ asset('js/app.js') }}"></script>
+      <style type="text/css">
+        .grid {
+          /*width: 1140px;*/
+          /*height: 600px;*/
+        }
+        .ng-hide:not(.ng-hide-animate) {
+          display: block!important;
+          position: absolute;
+          top: -9999px;
+          left: -9999px;
+        }
+      </style>
   </head>
   <body>
     <div class="container" ng-controller="QueryCtrl">
@@ -20,15 +35,18 @@
           <div class="form-group">
             <textarea class="form-control" rows="3" ng-model="query"></textarea>
             <br>
-            <button type="submit" class="btn btn-primary" ng-click="request(query)" >Query</button>
-            <button type="submit" class="btn btn-primary" ng-click="refreshCols()" >Refresh</button>
-            <button type="submit" class="btn btn-danger" ng-click="removeCol()" >Remove</button>
+            <button type="submit" class="btn btn-primary" ng-click="request(query)">
+              Query
+            </button>
+            <button type="button" class="btn btn-success" ng-click="hideGrid = !hideGrid">
+              @{{ hideGrid && 'Show' || 'Hide' }} Grid
+            </button>
           </div>
         </form>
       </div>
-      {{-- <div ng-hide="hideGrid"> --}}
-        <div ui-grid="gridOptions" ui-grid-core class="myGrid"></div>
-      {{-- </div> --}}
+      <div class="grid-well" ng-hide="hideGrid">
+        <div ui-grid="gridOptions" ui-grid-core class="grid"></div>
+      </div>
     </div>
 
   </body>
