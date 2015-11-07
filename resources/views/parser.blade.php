@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="soqlTool">
+<html lang="en" ng-app="parser-testing">
   <head>
     <meta charset="UTF-8">
-    <title>Test</title>
+    <title>Parser</title>
       <title>Laravel</title>
       <link rel="stylesheet" href="{{ asset('css/app.css') }}">
       <link rel="stylesheet" href="{{ asset('css/ui-grid.min.css') }}">
@@ -16,10 +16,6 @@
       <script src="{{ asset('js/lodash.js') }}"></script>
       <script src="{{ asset('js/app.js') }}"></script>
       <style type="text/css">
-        .grid {
-          /*width: 1140px;*/
-          /*height: 600px;*/
-        }
         .ng-hide:not(.ng-hide-animate) {
           display: block!important;
           position: absolute;
@@ -29,29 +25,14 @@
       </style>
   </head>
   <body>
-    <div class="container" ng-controller="QueryCtrl">
-      <h1>SOQL tool</h1>
+    <div class="container" ng-controller="MainCtrl">
+      <h1>Parse</h1>
       <div>
         <form>
           <div class="form-group">
             <textarea class="form-control" rows="3" ng-model="query"></textarea>
-            <br>
-            <button type="submit" class="btn btn-primary form-inline" ng-click="request(query)">
-              Query
-            </button>
-            <button type="button" class="btn btn-success form-inline" ng-click="hideGrid = !hideGrid">
-              @{{ hideGrid && 'Show' || 'Hide' }} Grid
-            </button>
-            <button type="button" class="btn btn-primary form-inline" ng-click="export()">
-              Export
-            </button>
-            <label></label>
-            <input type="text" class="form-inline" ng-model="fileName" />
           </div>
         </form>
-      </div>
-      <div class="grid-well" ng-hide="hideGrid">
-        <div ui-grid="gridOptions" ui-grid-exporter class="grid"></div>
       </div>
     </div>
 

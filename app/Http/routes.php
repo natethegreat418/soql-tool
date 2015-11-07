@@ -19,6 +19,14 @@ Route::get('/test', function () {
     return view('test');
 });
 
+Route::get('/parser', function () {
+    return view('parser');
+});
+
+Route::get('/highlighter', function () {
+    return view('highlighter');
+});
+
 Route::group(['prefix' => 'api'], function()
 {
     Route::get('/query/{query}', 'SalesforceController@query');
