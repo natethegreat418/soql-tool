@@ -30,7 +30,7 @@
   </head>
   <body>
     <div class="container" ng-controller="QueryCtrl">
-      <h1>SOQL tool</h1>
+      <h1>FuckYouSOQL</h1>
       <div>
         <form>
           <div class="form-group">

@@ -30,6 +30,8 @@ Route::get('/highlighter', function () {
 Route::group(['prefix' => 'api'], function()
 {
     Route::get('/query/{query}', 'SalesforceController@query');
+    Route::get('/schema/{url?}', 'SalesforceController@schema');
+    Route::get('/tooling/{url?}', 'SalesforceController@tooling');
     Route::get('/testData', function(){
         return [
             "records" => [

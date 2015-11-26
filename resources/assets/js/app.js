@@ -20,8 +20,8 @@ var queryCtrl = app.controller('QueryCtrl', ['$scope','$http','uiGridConstants',
 
   $scope.request = function(query)
   {
-    // $http.get('api/query/'+$scope.query)
-    $http.get('api/testData')
+    $http.get('api/query/'+$scope.query)
+    // $http.get('api/testData')
       .success(function(data) {
         for(i = 0; i < data.records.length; i++){
           delete data.records[i].attributes;
