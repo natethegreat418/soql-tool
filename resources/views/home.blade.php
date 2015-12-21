@@ -30,7 +30,8 @@
   </head>
   <body>
     <div class="container" ng-controller="QueryCtrl">
-      <h1>FuckYouSOQL</h1>
+      <h1>SOQL</h1>
+      <h3>{{ Auth::user() }}</h3>
       <div>
         <form>
           <div class="form-group">

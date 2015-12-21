@@ -17,16 +17,15 @@ return array(
 	 */
 	'credentials' => array(
 		//Required:
-		'consumerKey'    => '3MVG9xOCXq4ID1uGTSVFf7Srd9WLOwxc.v.46o8W01vWTwr5B2Tbn_HFjYC153XT68HkbddjcDfALH03mtbSi',
-		'consumerSecret' => '2286189902991954304',
-		'callbackURI'    => 'http://localhost:8000/callback',
-		'loginURL'       => 'https://login.salesforce.com',
+		'consumerKey'    => env('CONSUMER_KEY'),
+		'consumerSecret' => env('CONSUMER_SECRET'),
+		'callbackURI'    => env('CALLBACK_URI'),
+		'loginURL'       => env('LOGIN_URL'),
 
 		// Only required for UserPassword authentication:
-		'username'       => 'developer1@mattmitchener.com',
+		'username'       => env('USERNAME'),
 		// Security token might need to be ammended to password unless IP Address is whitelisted
-		'password'       => 'oreo24wpqrj0YgRdYTK8w3cIZ5O6XbwCtX',
-
+		'password'       => env('PASSWORD'),
 	),
 
 	/**
