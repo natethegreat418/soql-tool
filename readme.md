@@ -11,8 +11,9 @@
 8. Load metadata
 9. Determine errors in SOQL statement
 
-
-
+### todo
+Styling for authentication
+Refactor controller
 
 #### Typeahead specs
 

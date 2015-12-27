@@ -11,47 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-
-Route::get('/login', function() {
-    return Forrest::authenticate();
-});
-
-Route::get('/callback', function()
-{
-    Forrest::callback();
-
-    $identity = Forrest::identity();
-
-    try {
-        $user = App\User::findOrFail($identity['user_id']);
-        Auth::login($user);
-    } catch(Exception $e) {
-        $user = new App\User([
-            'id' => $identity['user_id'],
-            'name' => $identity['display_name'],
-            'email' => $identity['email']
-        ]);
-
-        $user->save();
-
-        Auth::login($user);
+Route::get('/', ['as' => 'home', function () {
+    if (Auth::check()) {
+        return view('home');
+    } else {
+        return view('login');
     }
-    
-    $url = Config::get('forrest.authRedirect');
+}]);
 
-    return Redirect::to($url);
-});
-
-Route::get('/logout', function() {
-    Forrest::revoke();
-
-    Auth::logout();
-
-    return view('home')->with('Logged Out');
-});
+Route::get('login', ['as' => 'login', 'uses' => 'AuthorizeController@login']);
+Route::get('callback', ['as' => 'callback', 'uses' => 'AuthorizeController@callback']);
+Route::get('logout', ['as' => 'logout', 'uses' => 'AuthorizeController@logout']);
 
 Route::get('/test', function () {
     dd(App::make('Omniphx\Forrest\Providers\Laravel\ForrestServiceProvider'));
@@ -95,4 +65,8 @@ Route::get('users', function() {
 
 Route::get('clear', function() {
     Session::clear();
+});
+
+Route::get('token', function() {
+    dd(Forrest::getTokenData());
 });
