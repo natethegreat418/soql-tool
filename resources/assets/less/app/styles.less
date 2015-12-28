@@ -1,16 +1,3 @@
-// //Import Styles
-// @import 'base.less';
-// @import 'socialicons.less';
-// @import 'patterns.less';
-
-//Custom styles
-body {
-	// margin-top: 100px;
-	// background: @debut_light;
-	background-color: steelblue;
-	color: white;
-}
-
 a {
 	outline: none;
 	&:focus,
@@ -40,5 +27,14 @@ a {
 }
 
 .btn-inverse {
-	border: solid 1px #fff;
+    color: #fff;
+    background-color: transparent;
+    border-color: #fff;
+}
+.btn-inverse:active,
+.btn-inverse:focus,
+.btn-inverse:hover{
+    color: @color-primary-3;
+    background-color: #fff;
+    border-color: #fff;
 }

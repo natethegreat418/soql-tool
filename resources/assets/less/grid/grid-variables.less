@@ -3,15 +3,17 @@
 
 /*-- VARIABLES (DO NOT REMOVE THESE COMMENTS) --*/
 
-@bootstrapDirectory: "../../../../bower_components/bootstrap";
-@grid-path: "../../../../bower_components/angular-ui-grid/less";
+@root-path: "../../../..";
+@bootstrapDirectory: "@{root-path}/bower_components/bootstrap";
+@grid-path: "@{root-path}/bower_components/angular-ui-grid/less";
+@app-path: "@{root-path}/resources/assets/less/app";
 
 /**
 * @section Grid styles
 */
 @gridBorderWidth: 1px;
 @gridBorderRadius: 0px;
-@borderColor: #d4d4d4;
+@borderColor: @color-primary-1;
 
 
 /**
@@ -19,7 +21,7 @@
 */
 
 /** @description Colors for header gradient */
-@headerBackgroundColor: #f3f3f3;
+@headerBackgroundColor: @color-primary-2;
 @headerGradientStart: #eee;
 @headerGradientStop: #fff;
 @headerVerticalBarColor: @borderColor;
@@ -30,8 +32,8 @@
 
 /** @description Colors used for row alternation */
 @verticalBarColor: @borderColor;
-@rowColorEven: steelblue;
-@rowColorOdd: darken(steelblue,20%);
+@rowColorEven: @color-primary-2;
+@rowColorOdd: darken(@color-primary-2, 5%);
 
 // TODO: colors for buttons
 
@@ -39,8 +41,8 @@
 * @section Sort arrow colors
 */
 
-@sortArrowBackgroundColor: #aaaaaa;
-@sortArrowBorderColor: #777777;
+@sortArrowBackgroundColor: #fff;
+@sortArrowBorderColor: #fff;
 
 
 // TODO: color for menu background
