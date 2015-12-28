@@ -8,7 +8,7 @@
   <p>{{ Session::get('loggedOut') }}</p>
   <form action="{{ route('login') }}">
     <div class="form-group">
-      <button type="submit" class="btn btn-primary">Login</button>
+      <button type="submit" class="btn btn-success btn-inverse">Login</button>
     </div>
   </form>
 </div>

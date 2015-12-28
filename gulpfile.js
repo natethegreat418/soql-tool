@@ -12,10 +12,15 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.less('app.less');
+    //Styles
+    mix.less('app/app.less');
+    mix.less('grid/grid.less');
+    mix.version(["css/app.css","css/grid.css"]);
+
+    //Scripts
     mix.scriptsIn('resources/assets/js','public/js/app.js');
 
-    //libraries
+    //Libraries
     mix.copy('bower_components/angular/angular.js', 'public/js');
     mix.copy('bower_components/lodash/lodash.js', 'public/js');
     mix.copy('bower_components/angular-touch/angular-touch.js', 'public/js');
@@ -24,9 +29,9 @@ elixir(function(mix) {
     mix.copy('bower_components/pdfmake/build/vfs_fonts.js', 'public/js');
     mix.copy('bower_components/CSV-JS/csv.js', 'public/js');
 
-    //ui-grid
-    mix.copy('bower_components/angular-ui-grid/ui-grid.js', 'public/js');
-    mix.copy('bower_components/angular-ui-grid/ui-grid.min.css', 'public/css');
+    //Grid stuff
+    // mix.copy('bower_components/angular-ui-grid/ui-grid.js', 'public/js');
+    // mix.copy('bower_components/angular-ui-grid/ui-grid.min.css', 'public/css');
     mix.copy('bower_components/angular-ui-grid/ui-grid.svg', 'public/css');
     mix.copy('bower_components/angular-ui-grid/ui-grid.ttf', 'public/css');
     mix.copy('bower_components/angular-ui-grid/ui-grid.woff', 'public/css');

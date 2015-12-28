@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>Test</title>
       <title>Laravel</title>
-      <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-      <link rel="stylesheet" href="{{ asset('css/ui-grid.min.css') }}">
+      <link rel="stylesheet" href="{{ elixir("css/app.css") }}">
+      <link rel="stylesheet" href="{{ elixir("css/grid.css") }}">
       <script src="{{ asset('js/angular.js') }}"></script>
       <script src="{{ asset('js/angular-touch.js') }}"></script>
       <script src="{{ asset('js/angular-animate.js') }}"></script>

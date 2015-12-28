@@ -14,7 +14,7 @@
       <li><p class="lead inline-block">Hello, {{ Auth::user()->name }}</p></li>
       <li>
         <form action="{{ route('logout') }}">
-          <button type="submit" class="btn btn-primary">Logout</button>
+          <button type="submit" class="btn btn-inverse btn-primary">Logout</button>
         </form>
       </li>
     </ul>
@@ -24,13 +24,13 @@
       <div class="form-group">
         <textarea class="form-control" rows="3" ng-model="query"></textarea>
         <br>
-        <button type="submit" class="btn btn-primary form-inline" ng-click="request(query)">
+        <button type="submit" class="btn btn-inverse btn-primary form-inline" ng-click="request(query)">
           Query
         </button>
-        <button type="button" class="btn btn-success form-inline" ng-click="hideGrid = !hideGrid">
+        <button type="button" class="btn btn-inverse btn-success form-inline" ng-click="hideGrid = !hideGrid">
           @{{ hideGrid && 'Show' || 'Hide' }} Grid
         </button>
-        <button type="button" class="btn btn-primary form-inline" ng-click="export()">
+        <button type="button" class="btn btn-inverse btn-primary form-inline" ng-click="export()">
           Export
         </button>
         <label></label>
