@@ -15,7 +15,10 @@ elixir(function(mix) {
     //Styles
     mix.less('app/app.less');
     mix.less('grid/grid.less');
-    mix.version(["css/app.css","css/grid.css"]);
+    mix.version([
+        'css/app.css',
+        'css/grid.css',
+        'css/ui-grid.svg']);
 
     //Scripts
     mix.scriptsIn('resources/assets/js','public/js/app.js');

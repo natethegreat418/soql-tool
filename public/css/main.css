@@ -368,11 +368,11 @@ select.ui-grid-filter-select:hover {
 }
 
 .ui-grid-row:nth-child(odd) .ui-grid-cell {
-  background-color: #dbedfc;
+  background-color: #84c3f3;
 }
 
 .ui-grid-row:nth-child(even) .ui-grid-cell {
-  background-color: #F3F9FE;
+  background-color: #9BCEF5;
 }
 
 .ui-grid-row:last-child .ui-grid-cell {
@@ -446,6 +446,10 @@ select.ui-grid-filter-select:hover {
 
 /**
 * @section Scrollbar styles
+*/
+
+/**
+* @section font library path
 */
 
 /*-- END VARIABLES (DO NOT REMOVE THESE COMMENTS) --*/
@@ -785,8 +789,8 @@ fieldset[disabled] .ui-grid-menu .ui-grid-menu-inner .ui-grid-menu-close-button.
 
 @font-face {
   font-family: 'ui-grid';
-  src: url('../../css/ui-grid.eot');
-  src: url('../../css/ui-grid.eot#iefix') format('embedded-opentype'), url('../../css/ui-grid.woff') format('woff'), url('../../css/ui-grid.ttf') format('truetype'), url('../../css/ui-grid.svg?#ui-grid') format('svg');
+  src: url('ui-grid.eot');
+  src: url('ui-grid.eot#iefix') format('embedded-opentype'), url('ui-grid.woff') format('woff'), url('ui-grid.ttf') format('truetype'), url('ui-grid.svg?#ui-grid') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -966,6 +970,10 @@ fieldset[disabled] .ui-grid-menu .ui-grid-menu-inner .ui-grid-menu-close-button.
 * @section Scrollbar styles
 */
 
+/**
+* @section font library path
+*/
+
 /*-- END VARIABLES (DO NOT REMOVE THESE COMMENTS) --*/
 
 .ui-grid-tree-row-header-buttons.ui-grid-tree-header {
@@ -1067,16 +1075,4 @@ fieldset[disabled] .ui-grid-menu .ui-grid-menu-inner .ui-grid-menu-close-button.
 
 .ui-grid-icon-spin5:before {
   content: '\ea61';
-}
-
-* :focus {
-  outline: none;
-}
-
-.ui-grid-icon-cancel :focus {
-  outline: none;
-}
-
-.ui-grid-canvas {
-  color: black;
 }
