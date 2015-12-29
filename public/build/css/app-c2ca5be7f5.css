@@ -2700,7 +2700,7 @@ pre code {
 }
 
 table {
-  background-color: transparent;
+  background-color: #F3F9FE;
 }
 
 th {
@@ -2776,12 +2776,12 @@ th {
 
 .table-striped > tbody > tr:nth-child(odd) > td,
 .table-striped > tbody > tr:nth-child(odd) > th {
-  background-color: #f9f9f9;
+  background-color: #2699F2;
 }
 
 .table-hover > tbody > tr:hover > td,
 .table-hover > tbody > tr:hover > th {
-  background-color: #f5f5f5;
+  background-color: #dbedfc;
 }
 
 table col[class*="col-"] {
@@ -2809,7 +2809,7 @@ table th[class*="col-"] {
 .table > thead > tr.active > th,
 .table > tbody > tr.active > th,
 .table > tfoot > tr.active > th {
-  background-color: #f5f5f5;
+  background-color: #dbedfc;
 }
 
 .table-hover > tbody > tr > td.active:hover,
@@ -2817,7 +2817,7 @@ table th[class*="col-"] {
 .table-hover > tbody > tr.active:hover > td,
 .table-hover > tbody > tr:hover > .active,
 .table-hover > tbody > tr.active:hover > th {
-  background-color: #e8e8e8;
+  background-color: #c4e1fa;
 }
 
 .table > thead > tr > td.success,
@@ -7544,6 +7544,20 @@ a:active {
   outline: none;
 }
 
+.table-header {
+  color: #F3F9FE;
+  background-color: #9BCEF5;
+}
+
+.table-hover > tbody > tr:hover > th {
+  color: #9BCEF5;
+  background-color: #F3F9FE;
+}
+
+.table {
+  color: black;
+}
+
 .gridStyle {
   width: 400px;
   height: 400px;
@@ -7574,4 +7588,13 @@ a:active {
   color: #2699F2;
   background-color: #fff;
   border-color: #fff;
+}
+
+.button-group {
+  margin: 10px 0;
+}
+
+.export-float {
+  display: table-cell;
+  vertical-align: bottom;
 }

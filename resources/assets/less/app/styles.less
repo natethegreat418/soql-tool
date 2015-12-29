@@ -7,6 +7,31 @@ a {
 	}
 }
 
+.table-header {
+    color: @color-primary-1;
+    background-color: @color-primary-2;
+}
+
+.table-hover {
+    > tbody > tr:hover {
+        > th {
+            color: @color-primary-2;
+            background-color: @color-primary-1;
+        }
+    }
+}
+
+// .table-hover {
+//     > tbody > tr > th:hover {
+//         color: @color-primary-3;
+//         background-color: darken(@color-primary-1, 5%);
+//     }
+// }
+
+.table {
+    color: black;
+}
+
 .gridStyle {
     width: 400px; 
     height: 400px;
@@ -36,4 +61,13 @@ a {
     color: @color-primary-3;
     background-color: #fff;
     border-color: #fff;
+}
+
+.button-group {
+    margin: 10px 0;
+}
+
+.export-float {
+    display: table-cell;
+    vertical-align: bottom;
 }
