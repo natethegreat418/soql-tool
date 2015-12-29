@@ -45,25 +45,15 @@ app.controller('MainCtrl', ['$scope', '$http', 'uiGridConstants', function ($sco
       $scope.gridOptions.data = data;
     });
 }]);
-var app = angular.module('soqlTool', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.selection', 'ui.grid.exporter', 'ui.grid', 'lodash']);
+var app = angular.module('soqlTool', ['ngAnimate', 'ngTouch']);
 
-var queryCtrl = app.controller('QueryCtrl', ['$scope','$http','uiGridConstants', function($scope, $http, uiGridConstants)
+var queryCtrl = app.controller('QueryCtrl', ['$scope','$http', function($scope, $http)
 {
   $scope.query = 'SELECT Id, Name, BillingCity FROM Account limit 10';
-  $scope.hideGrid = true;
   $scope.fileName = 'query';
 
-  $scope.gridOptions = {
-    enableSorting: true,
-    enableGridMenu: true,
-    exporterMenuCsv: false,
-    exporterMenuPdf: false,
-    exporterCsvFilename: $scope.fileName+'.csv',
-    exporterCsvLinkElement: angular.element(document.querySelectorAll(".custom-csv-link-location")),
-    onRegisterApi: function(gridApi) {
-      $scope.gridApi = gridApi;
-    }
-  };
+  $scope.columns = [];
+  $scope.rows = [];
 
   $scope.request = function(query)
   {
@@ -73,16 +63,14 @@ var queryCtrl = app.controller('QueryCtrl', ['$scope','$http','uiGridConstants',
         for(i = 0; i < data.records.length; i++){
           delete data.records[i].attributes;
         }
-        $scope.gridOptions.data = data.records;
+        $scope.rows = data.records;
 
         if(data.records.length !== 0){
           $scope.columns = [];
           angular.forEach(data.records[0], function(value, key) {
-            $scope.columns.push({field : key});
+            $scope.columns.push(key);
           });
-          $scope.gridOptions.columnDefs = $scope.columns;
         }
-        $scope.hideGrid = false;
     });
   };
 

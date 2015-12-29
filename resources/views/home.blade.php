@@ -5,9 +5,9 @@
 <div class="container" ng-controller="QueryCtrl">
   <div class="pull-left">
     <h3>SOQL</h3>
-{{--     <p class="lead">
-      The SOQL tool you've been waiting for!
-    </p> --}}
+    <p class="lead">
+      The tool you've been waiting for!
+    </p>
   </div>
   <div class="pull-right" style="margin-top: 20px;">
     <ul class="list-inline">
@@ -23,24 +23,31 @@
     <form>
       <div class="form-group">
         <textarea class="form-control" rows="3" ng-model="query"></textarea>
-        <br>
-        <button type="submit" class="btn btn-inverse btn-primary form-inline" ng-click="request(query)">
-          Query
-        </button>
-        <button type="button" class="btn btn-inverse btn-success form-inline" ng-click="hideGrid = !hideGrid">
-          @{{ hideGrid && 'Show' || 'Hide' }} Grid
-        </button>
-        <button type="button" class="btn btn-inverse btn-primary form-inline" ng-click="export()">
-          Export
-        </button>
-        <label></label>
-        <input type="text" class="form-inline" ng-model="fileName" />
+
+        <div class="pull-left button-group form-inline">
+          <button type="submit" class="btn btn-inverse btn-primary form-control" ng-click="request(query)">
+            Query
+          </button>
+        </div>
+
+        <div class="pull-right button-group form-inline">
+          <button type="button" class="btn btn-inverse btn-primary form-control" ng-click="export()">
+            Export
+          </button>
+          <input type="text" class="form-control" ng-model="fileName" style="color: black;" />
+        </div>
       </div>
     </form>
   </div>
-  <div class="grid-well" ng-hide="hideGrid">
-    <div ui-grid="gridOptions" ui-grid-exporter class="grid"></div>
-  </div>
+
+  <table class="table table-bordered table-hover">
+    <tr class="table-header">
+      <th ng-repeat="column in columns">@{{ column }}</th>
+    </tr>
+    <tr ng-repeat="row in rows">
+      <td ng-repeat="column in columns">@{{ row[column] }}</td>
+    </tr>
+  </table>
 </div>
 
 @endsection
