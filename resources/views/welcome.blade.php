@@ -1,50 +1,33 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Laravel</title>
+@extends('master')
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="{{ elixir('css/app.css') }}">
+@section('container')
 
-        <style>
-            html, body {
-                height: 100%;
-            }
+<div class="container" ng-controller="HomeCtrl">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
 
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
+            <div class="text-center header-wrapper">
+                <i class="fa fa-database fa-5x"></i>
+                <h1>SOQuirreL</h1>
+                <p class="lead">A SOQL tool that is really swell!</p>
+                <p>{{ Session::get('loggedOut') }}</p>
+                <form action="{{ route('login') }}">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-lg btn-success btn-inverse">LOGIN</button>
+                </div>
+                </form>
 
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
+{{--                 <div class="text-center generator-share" id="sharebox">
+                    <h4>Love it?</h4>
+                    @include('layouts.shareicons')
+                </div> --}}
 
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 96px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">Laravel 5</div>
             </div>
 
-            <div>
-                <textarea class="form-control" rows="3"></textarea>
-            </div>
         </div>
-    </body>
-</html>
+    </div>
+</div>
+
+@include('layouts.footer')
+
+@endsection

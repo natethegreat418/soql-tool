@@ -51,6 +51,6 @@ class SalesforceAuthentication
         
         Session::flash('loggedOut', 'You have succesfully logged out');
 
-        return view('login');
+        return view('welcome');
     }
 }

@@ -7769,6 +7769,10 @@ button.close {
   text-decoration: none;
 }
 
+/*
+ * Global styles
+ */
+
 a {
   outline: none;
 }
@@ -7779,37 +7783,47 @@ a:active {
   outline: none;
 }
 
+/*
+ * Table styles
+ */
+
 .table-header {
   color: #F3F9FE;
   background-color: #9BCEF5;
 }
 
-.table-hover > tbody > tr:hover > th {
+.table-header:hover > th > a {
   color: #9BCEF5;
-  background-color: #F3F9FE;
+}
+
+.table-header:hover > th:hover > a {
+  color: #2699F2;
+}
+
+th > a {
+  display: block;
+  width: 100%;
+  outline: none;
+  text-decoration: none;
+  color: #F3F9FE;
+}
+
+th > a:focus,
+th > a:hover,
+th > a:active {
+  color: #F3F9FE;
+  outline: none;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .table {
   color: black;
 }
 
-.gridStyle {
-  width: 400px;
-  height: 400px;
-}
-
-.ng-hide:not(.ng-hide-animate) {
-  display: block!important;
-  position: absolute;
-  top: -9999px;
-  left: -9999px;
-}
-
-.ui-grid-menu-button {
-  border: none;
-  border-bottom: solid 1px #d4d4d4;
-  border-left: solid 1px #d4d4d4;
-}
+/*
+ * Inverse button styles
+ */
 
 .btn-inverse {
   color: #fff;
@@ -7825,6 +7839,10 @@ a:active {
   border-color: #fff;
 }
 
+/*
+ * Query page styles
+ */
+
 .button-group {
   margin: 10px 0;
 }
@@ -7833,6 +7851,10 @@ a:active {
   display: table-cell;
   vertical-align: bottom;
 }
+
+/*
+ * Home page styles
+ */
 
 .header-wrapper {
   height: 100%;
@@ -7844,6 +7866,10 @@ footer {
   color: black;
   background: url(/patterns/debut_light/debut_light.png) repeat 0 0;
 }
+
+/*
+ * Sharing icons
+ */
 
 .generator-share {
   margin-top: 200px;
