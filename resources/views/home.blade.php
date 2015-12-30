@@ -39,7 +39,12 @@
 
   <table class="table table-bordered table-hover">
     <tr class="table-header">
-      <th ng-repeat="column in columns">@{{ column }}</th>
+      <th ng-repeat="column in columns">
+        <a href="#" ng-click="order(column)">
+        <span ng-show="renderDownCaret(column)" class="fa fa-caret-down"></span>
+        <span ng-show="renderUpCaret(column)" class="fa fa-caret-up"></span>
+        @{{ column }}</a>
+      </th>
     </tr>
     <tr ng-repeat="row in rows">
       <td ng-repeat="column in columns">@{{ row[column] }}</td>

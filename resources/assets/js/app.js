@@ -1,14 +1,16 @@
 var app = angular.module('soqlTool', ['ngAnimate', 'ngTouch']);
 
-var queryCtrl = app.controller('QueryCtrl', ['$scope','$http', function($scope, $http) {
+var queryCtrl = app.controller('QueryCtrl', ['$scope','$http', '$filter', function($scope, $http, $filter) {
   $scope.query = 'SELECT Id, Name, BillingCity FROM Account limit 10';
   $scope.fileName = 'query';
 
   $scope.columns = [];
   $scope.rows = [];
 
-  $scope.request = function(query)
-  {
+  $scope.sortType = '';
+  $scope.sortReverse = false;
+
+  $scope.request = function(query) {
     $http.get('api/query/'+$scope.query)
     // $http.get('api/testData')
       .success(function(data) {
@@ -26,11 +28,25 @@ var queryCtrl = app.controller('QueryCtrl', ['$scope','$http', function($scope, 
     });
   };
 
-  $scope.export = function(){
-    $scope.gridApi.exporter.csvExport('all', 'all');
+  $scope.order = function(sortType) {
+    $scope.sortType = sortType;
+    $scope.sortReverse = ($scope.sortType === sortType) ? !$scope.sortReverse : false;
+    $scope.rows = $filter('orderBy')($scope.rows, sortType, $scope.sortReverse);
   };
 
-  var renderQueryObj = function(){
+  $scope.renderUpCaret = function(column) {
+    return $scope.sortType === column && !$scope.sortReverse;
+  };
+
+  $scope.renderDownCaret = function(column) {
+    return $scope.sortType === column && $scope.sortReverse;
+  };
+
+  $scope.export = function(){
+    // $scope.gridApi.exporter.csvExport('all', 'all');
+  };
+
+  var renderQueryObj = function() {
     console.log($scope.queryObject);
     $scope.query = $scope.queryObject.type;
     $scope.query += " ";

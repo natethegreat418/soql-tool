@@ -15,7 +15,7 @@ Route::get('/', ['as' => 'home', function () {
     if (Auth::check()) {
         return view('home');
     } else {
-        return view('login');
+        return view('welcome');
     }
 }]);
 

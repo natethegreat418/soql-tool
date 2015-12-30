@@ -1,3 +1,7 @@
+/*
+ * Global styles
+ */
+
 a {
 	outline: none;
 	&:focus,
@@ -7,49 +11,47 @@ a {
 	}
 }
 
+/*
+ * Table styles
+ */
+
 .table-header {
     color: @color-primary-1;
     background-color: @color-primary-2;
-}
-
-.table-hover {
-    > tbody > tr:hover {
-        > th {
+    &:hover > th {
+        > a {
             color: @color-primary-2;
-            background-color: @color-primary-1;
+        }
+        &:hover > a {
+            color: @color-primary-3;
         }
     }
 }
 
-// .table-hover {
-//     > tbody > tr > th:hover {
-//         color: @color-primary-3;
-//         background-color: darken(@color-primary-1, 5%);
-//     }
-// }
+th > a {
+    display:block;
+    width:100%;
+    outline: none;
+    text-decoration: none;
+    color: @color-primary-1;
+    &:focus,
+    &:hover,
+    &:active {
+        color: @color-primary-1;
+        outline: none;
+        text-decoration: none;
+        font-weight: bold;
+    }
+}
 
 .table {
     color: black;
 }
 
-.gridStyle {
-    width: 400px; 
-    height: 400px;
-}
 
-.ng-hide:not(.ng-hide-animate) {
-	display: block!important;
-	position: absolute;
-	top: -9999px;
-	left: -9999px;
- }
-
-.ui-grid-menu-button {
-	border: none;
-	border-bottom: solid 1px #d4d4d4;
-	border-left: solid 1px #d4d4d4;
-}
-
+/*
+ * Inverse button styles
+ */
 .btn-inverse {
     color: #fff;
     background-color: transparent;
@@ -63,6 +65,10 @@ a {
     border-color: #fff;
 }
 
+
+/*
+ * Query page styles
+ */
 .button-group {
     margin: 10px 0;
 }
@@ -72,6 +78,10 @@ a {
     vertical-align: bottom;
 }
 
+
+/*
+ * Home page styles
+ */
 .header-wrapper {
     height: 100%;
     padding: 228px 0;
@@ -83,6 +93,9 @@ footer {
   background: url(/patterns/debut_light/debut_light.png) repeat 0 0;
 }
 
+/*
+ * Sharing icons
+ */
 .generator-share {
     margin-top: 200px;
     h4 {
