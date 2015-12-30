@@ -4,10 +4,7 @@
 
 <div class="container" ng-controller="QueryCtrl">
   <div class="pull-left">
-    <h3>SOQL</h3>
-    <p class="lead">
-      The tool you've been waiting for!
-    </p>
+    <h1>SOQuirreL</h1>
   </div>
   <div class="pull-right" style="margin-top: 20px;">
     <ul class="list-inline">

@@ -47,8 +47,7 @@ app.controller('MainCtrl', ['$scope', '$http', 'uiGridConstants', function ($sco
 }]);
 var app = angular.module('soqlTool', ['ngAnimate', 'ngTouch']);
 
-var queryCtrl = app.controller('QueryCtrl', ['$scope','$http', function($scope, $http)
-{
+var queryCtrl = app.controller('QueryCtrl', ['$scope','$http', function($scope, $http) {
   $scope.query = 'SELECT Id, Name, BillingCity FROM Account limit 10';
   $scope.fileName = 'query';
 
@@ -108,7 +107,14 @@ var queryCtrl = app.controller('QueryCtrl', ['$scope','$http', function($scope, 
       }
     }
   };
+}]);
 
+var homeCtrl = app.controller('HomeCtrl', ['$scope', function($scope) {
+  $scope.url = 'https://soql.192.168.33.10.xip.io';
+  $scope.title = 'SOQuirreL';
+  $scope.description = 'A SOQL tool that is really swell!';
+  $scope.hashtag = '#SOQuirreL';
+  $scope.summary = 'A SOQL tool that is really swell!';
 }]);
 
 var app = angular.module('parser-testing', []);

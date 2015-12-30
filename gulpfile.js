@@ -14,11 +14,10 @@ var elixir = require('laravel-elixir');
 elixir(function(mix) {
     //Styles
     mix.less('app/app.less');
-    mix.less('grid/grid.less');
+    mix.less('font-awesome/font-awesome.less');
     mix.version([
         'css/app.css',
-        'css/grid.css',
-        'css/ui-grid.svg']);
+        'css/font-awesome.css']);
 
     //Scripts
     mix.scriptsIn('resources/assets/js','public/js/app.js');
@@ -32,13 +31,8 @@ elixir(function(mix) {
     mix.copy('bower_components/pdfmake/build/vfs_fonts.js', 'public/js');
     mix.copy('bower_components/CSV-JS/csv.js', 'public/js');
 
-    //Grid stuff
-    mix.copy('bower_components/angular-ui-grid/ui-grid.js', 'public/js');
-    mix.copy('bower_components/angular-ui-grid/ui-grid.min.css', 'public/css');
-    mix.copy('bower_components/angular-ui-grid/ui-grid.svg', 'public/css');
-    mix.copy('bower_components/angular-ui-grid/ui-grid.ttf', 'public/css');
-    mix.copy('bower_components/angular-ui-grid/ui-grid.woff', 'public/css');
-    mix.copy('bower_components/angular-ui-grid/ui-grid.eot', 'public/css');
-
-
+    //Assets
+    mix.copy('bower_components/font-awesome/fonts', 'public/fonts/font-awesome');
+    mix.copy('resources/assets/fonts', 'public/fonts');
+    mix.copy('resources/assets/patterns', 'public/patterns');
 });
