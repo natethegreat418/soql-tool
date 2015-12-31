@@ -10,12 +10,10 @@
       <script src="{{ asset('js/angular.js') }}"></script>
       <script src="{{ asset('js/angular-touch.js') }}"></script>
       <script src="{{ asset('js/angular-animate.js') }}"></script>
-      <script src="{{ asset('js/ui-grid.js') }}"></script>
-      <script src="{{ asset('js/csv.js') }}"></script>
-      <script src="{{ asset('js/vfs_fonts.js') }}"></script>
-      <script src="{{ asset('js/pdfmake.js') }}"></script>
       <script src="{{ asset('js/lodash.js') }}"></script>
-      <script src="{{ asset('js/app.js') }}"></script>
+      <script src="{{ asset('js/angular-sanitize.js') }}"></script>
+      <script src="{{ asset('js/ng-csv.js') }}"></script>
+      <script src="{{ elixir("js/app.js") }}"></script>
       <style type="text/css">
 
       </style>

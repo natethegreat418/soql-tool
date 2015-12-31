@@ -1,8 +1,8 @@
-var app = angular.module('soqlTool', ['ngAnimate', 'ngTouch']);
+var app = angular.module('soqlTool', ['ngAnimate', 'ngTouch', 'ngSanitize', 'ngCsv']);
 
 var queryCtrl = app.controller('QueryCtrl', ['$scope','$http', '$filter', function($scope, $http, $filter) {
   $scope.query = 'SELECT Id, Name, BillingCity FROM Account limit 10';
-  $scope.fileName = 'query';
+  $scope.fileName = '';
 
   $scope.columns = [];
   $scope.rows = [];
@@ -28,6 +28,25 @@ var queryCtrl = app.controller('QueryCtrl', ['$scope','$http', '$filter', functi
     });
   };
 
+  $scope.getExportData = function() {
+    var rows = [];
+    // rows[0] = $scope.columns;
+
+    for (var i = 0, len = $scope.rows.length; i < len; i++) {
+      if(i ==0)
+      angular.forEach(rows, function(value, key) {
+        rows
+      });
+    }
+
+
+    return rows;
+  };
+
+  $scope.getHeader = function() {
+    return $scope.columns;
+  }
+
   $scope.order = function(sortType) {
     $scope.sortType = sortType;
     $scope.sortReverse = ($scope.sortType === sortType) ? !$scope.sortReverse : false;
@@ -40,10 +59,6 @@ var queryCtrl = app.controller('QueryCtrl', ['$scope','$http', '$filter', functi
 
   $scope.renderDownCaret = function(column) {
     return $scope.sortType === column && $scope.sortReverse;
-  };
-
-  $scope.export = function(){
-    // $scope.gridApi.exporter.csvExport('all', 'all');
   };
 
   var renderQueryObj = function() {
