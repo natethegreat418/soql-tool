@@ -8,7 +8,7 @@
   </div>
   <div class="pull-right" style="margin-top: 20px;">
     <ul class="list-inline">
-      <li><p class="lead inline-block">Hello, {{ Auth::user()->name }}</p></li>
+      {{-- <li><p class="lead inline-block">Hello, {{ Auth::user()->name }}</p></li> --}}
       <li>
         <form action="{{ route('logout') }}">
           <button type="submit" class="btn btn-inverse btn-primary">Logout</button>
@@ -28,10 +28,10 @@
         </div>
 
         <div class="pull-right button-group form-inline">
-          <button type="button" class="btn btn-inverse btn-primary form-control" ng-click="export()">
+          <button type="button" class="btn btn-inverse btn-primary form-control" ng-csv="rows" csv-header="getHeader()" fileName="@{{ fileName }}">
             Export
           </button>
-          <input type="text" class="form-control" ng-model="fileName" style="color: black;" />
+          <input type="text" class="form-control" ng-model="fileName" style="color: black;"  placeholder="File name"/>
         </div>
       </div>
     </form>

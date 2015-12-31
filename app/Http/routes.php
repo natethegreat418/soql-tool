@@ -23,13 +23,6 @@ Route::get('login', ['as' => 'login', 'uses' => 'AuthorizeController@login']);
 Route::get('callback', ['as' => 'callback', 'uses' => 'AuthorizeController@callback']);
 Route::get('logout', ['as' => 'logout', 'uses' => 'AuthorizeController@logout']);
 
-Route::get('/test', function () {
-    dd(App::make('Omniphx\Forrest\Providers\Laravel\ForrestServiceProvider'));
-
-    dd($app['forrest']);
-    // return view('test');
-});
-
 Route::get('/parser', function () {
     return view('parser');
 });
