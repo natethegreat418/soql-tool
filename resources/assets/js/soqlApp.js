@@ -1,4 +1,4 @@
-var app = angular.module('soqlTool', ['ngAnimate', 'ngTouch', 'ngSanitize', 'ngCsv', 'angularUtils.directives.dirPagination']);
+var soqlApp = angular.module('soqlApp', ['ngAnimate', 'ngTouch', 'ngSanitize', 'ngCsv', 'angularUtils.directives.dirPagination']);
 
 var queryCtrl = app.controller('QueryCtrl', ['$scope','$http', '$filter', function($scope, $http, $filter) {
   $scope.queryString = 'SELECT Id, Name, BillingCity FROM Account';
@@ -38,20 +38,15 @@ var queryCtrl = app.controller('QueryCtrl', ['$scope','$http', '$filter', functi
   var queryMore = function(nextRecordsUrl) {
     $http.get('api/next/'+nextRecordsUrl)
       .success(function(data) {
-        console.log(data);
+        // console.log(data);
         for(i = 0; i < data.records.length; i++){
           delete data.records[i].attributes;
         }
 
         $scope.rows = $scope.rows.concat(data.records);
-        
-        // $scope.rows = angular.extend($scope.rows, data.records);
 
-        console.log($scope.rows.length);
+        // console.log($scope.rows.length);
         
-        // $scope.$apply(function(){
-        //   $scope.rows.concat(data.records);
-        // });
         queryNextHandler(data);
     });
   };
@@ -60,7 +55,7 @@ var queryCtrl = app.controller('QueryCtrl', ['$scope','$http', '$filter', functi
     if(data.done === false) {
       var nextRecordsUrlEncoded = encodeURI(data.nextRecordsUrl)
         .replace(/\//g, '_');
-      console.log(nextRecordsUrlEncoded);
+      // console.log(nextRecordsUrlEncoded);
       queryMore(nextRecordsUrlEncoded);
     }
   }

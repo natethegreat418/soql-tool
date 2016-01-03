@@ -34,6 +34,7 @@ elixir(function(mix) {
     mix.copy('bower_components/angular-bootstrap/ui-bootstrap-tpls.js', 'public/js');
     mix.copy('bower_components/angularUtils-pagination/dirPagination.js', 'public/js');
     mix.copy('bower_components/angularUtils-pagination/dirPagination.tpl.html', 'public/js');
+    mix.copy('bower_components/angular-mocks/angular-mocks.js', 'public/js');
 
     //Assets
     mix.copy('bower_components/font-awesome/fonts', 'public/fonts/font-awesome');
