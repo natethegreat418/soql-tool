@@ -8,8 +8,10 @@
 
             <div class="text-center header-wrapper">
                 <i class="fa fa-database fa-5x"></i>
-                <h1>SOQuirreL</h1>
-                <p class="lead">A SOQL tool that is really swell!</p>
+                <h1>SOQooL</h1>
+                {{-- <small>because it's an old fool whose so cool</small> --}}
+                <p class="lead">an old fool who's so cool</p>
+                {{-- <p class="lead">A SOQL tool that is really swell!</p> --}}
                 <p>{{ Session::get('loggedOut') }}</p>
                 <form action="{{ route('login') }}">
                 <div class="form-group">

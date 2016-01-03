@@ -18,22 +18,44 @@
   </div>
   <div>
     <form>
-      <div class="form-group">
-        <textarea class="form-control" rows="3" ng-model="query"></textarea>
 
-        <div class="pull-left button-group form-inline">
-          <button type="submit" class="btn btn-inverse btn-primary form-control" ng-click="request(query)">
-            Query
-          </button>
-        </div>
+      <textarea class="form-control" rows="3" ng-model="queryString"></textarea>
 
-        <div class="pull-right button-group form-inline">
-          <button type="button" class="btn btn-inverse btn-primary form-control" ng-csv="rows" csv-header="getHeader()" fileName="@{{ fileName }}">
-            Export
-          </button>
-          <input type="text" class="form-control" ng-model="fileName" style="color: black;"  placeholder="File name"/>
-        </div>
+      <div class="pull-left button-group form-inline">
+        <button type="submit" class="btn btn-inverse btn-primary form-control" ng-click="query()">
+          Query
+        </button>
       </div>
+
+      <div class="pull-right button-group form-inline">
+        <button type="button" class="btn btn-inverse btn-primary form-control" ng-csv="rows" csv-header="getHeader()" fileName="@{{ fileName }}">
+          Export
+        </button>
+        <input type="text" class="form-control" ng-model="fileName" style="color: black;"  placeholder="File name"/>
+      </div>
+
+      <br>
+      <br>
+      <br>
+        
+      <div class="pull-left button-group form-inline">
+        <div class="form-group">
+          <label for="search">Filter</label>
+          <input type="text" ng-model="q" class="form-control" id="search" placeholder="Search">
+          <p>@{{ filtered.length }} out of @{{ rows.length }}</p>
+        </div>
+        
+      </div>
+
+      <div class="pull-right">
+        <div class="form-group form-inline">
+          <label for="pageSize">Page size</label>
+          <select class="form-control" ng-options="option for option in pageSizeOptions" ng-model="pageSize" id="pageSize">
+          </select>
+        </div>
+
+      </div>
+
     </form>
   </div>
 
@@ -46,10 +68,16 @@
         @{{ column }}</a>
       </th>
     </tr>
-    <tr ng-repeat="row in rows">
+    {{-- <tr dir-paginate="row in rows | filter:q | itemsPerPage: pageSize" current-page="currentPage"> --}}
+    <tr dir-paginate="row in filtered = (rows | filter:q) | itemsPerPage: pageSize" current-page="currentPage">
       <td ng-repeat="column in columns">@{{ row[column] }}</td>
     </tr>
   </table>
+
+  <div class="text-center">
+    <dir-pagination-controls></dir-pagination-controls>
+  </div>
+  
 </div>
 
 @endsection

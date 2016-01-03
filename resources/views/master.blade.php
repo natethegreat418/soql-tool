@@ -13,6 +13,10 @@
       <script src="{{ asset('js/lodash.js') }}"></script>
       <script src="{{ asset('js/angular-sanitize.js') }}"></script>
       <script src="{{ asset('js/ng-csv.js') }}"></script>
+      <script src="{{ asset('js/ui-bootstrap.js') }}"></script>
+      <script src="{{ asset('js/ui-bootstrap-tpls.js') }}"></script>
+      <script src="{{ asset('js/dirPagination.js') }}"></script>
+      {{-- <script src="{{ asset('js/dirPagination.tpl.html') }}"></script> --}}
       <script src="{{ elixir("js/app.js") }}"></script>
       <style type="text/css">
 

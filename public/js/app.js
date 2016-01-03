@@ -45,10 +45,10 @@ app.controller('MainCtrl', ['$scope', '$http', 'uiGridConstants', function ($sco
       $scope.gridOptions.data = data;
     });
 }]);
-var app = angular.module('soqlTool', ['ngAnimate', 'ngTouch', 'ngSanitize', 'ngCsv']);
+var app = angular.module('soqlTool', ['ngAnimate', 'ngTouch', 'ngSanitize', 'ngCsv', 'angularUtils.directives.dirPagination']);
 
 var queryCtrl = app.controller('QueryCtrl', ['$scope','$http', '$filter', function($scope, $http, $filter) {
-  $scope.query = 'SELECT Id, Name, BillingCity FROM Account limit 10';
+  $scope.queryString = 'SELECT Id, Name, BillingCity FROM Account';
   $scope.fileName = '';
 
   $scope.columns = [];
@@ -57,14 +57,18 @@ var queryCtrl = app.controller('QueryCtrl', ['$scope','$http', '$filter', functi
   $scope.sortType = '';
   $scope.sortReverse = false;
 
-  $scope.request = function(query) {
-    $http.get('api/query/'+$scope.query)
+  $scope.currentPage = 1;
+  $scope.pageSizeOptions = [25, 50, 100, 200];
+  $scope.pageSize = $scope.pageSizeOptions[0];
+
+  $scope.query = function() {
+    $http.get('api/query/'+$scope.queryString)
     // $http.get('api/testData')
       .success(function(data) {
+        console.log(data);
         for(i = 0; i < data.records.length; i++){
           delete data.records[i].attributes;
         }
-        $scope.rows = data.records;
 
         if(data.records.length !== 0){
           $scope.columns = [];
@@ -72,23 +76,41 @@ var queryCtrl = app.controller('QueryCtrl', ['$scope','$http', '$filter', functi
             $scope.columns.push(key);
           });
         }
+        
+        $scope.rows = data.records;
+        queryNextHandler(data);
     });
   };
 
-  $scope.getExportData = function() {
-    var rows = [];
-    // rows[0] = $scope.columns;
+  var queryMore = function(nextRecordsUrl) {
+    $http.get('api/next/'+nextRecordsUrl)
+      .success(function(data) {
+        console.log(data);
+        for(i = 0; i < data.records.length; i++){
+          delete data.records[i].attributes;
+        }
 
-    for (var i = 0, len = $scope.rows.length; i < len; i++) {
-      if(i ==0)
-      angular.forEach(rows, function(value, key) {
-        rows
-      });
-    }
+        $scope.rows = $scope.rows.concat(data.records);
+        
+        // $scope.rows = angular.extend($scope.rows, data.records);
 
-
-    return rows;
+        console.log($scope.rows.length);
+        
+        // $scope.$apply(function(){
+        //   $scope.rows.concat(data.records);
+        // });
+        queryNextHandler(data);
+    });
   };
+
+  var queryNextHandler = function(data) {
+    if(data.done === false) {
+      var nextRecordsUrlEncoded = encodeURI(data.nextRecordsUrl)
+        .replace(/\//g, '_');
+      console.log(nextRecordsUrlEncoded);
+      queryMore(nextRecordsUrlEncoded);
+    }
+  }
 
   $scope.getHeader = function() {
     return $scope.columns;
@@ -110,8 +132,8 @@ var queryCtrl = app.controller('QueryCtrl', ['$scope','$http', '$filter', functi
 
   var renderQueryObj = function() {
     console.log($scope.queryObject);
-    $scope.query = $scope.queryObject.type;
-    $scope.query += " ";
+    $scope.queryString = $scope.queryObject.type;
+    $scope.queryString += " ";
     for(i = 0; i < $scope.queryObject.fields.length; i++){
       if(i === $scope.queryObject.fields.length - 1){
         $scope.query += $scope.queryObject.fields[i];
@@ -138,6 +160,11 @@ var queryCtrl = app.controller('QueryCtrl', ['$scope','$http', '$filter', functi
       }
     }
   };
+
+  $scope.pageChangeHandler = function(num) {
+      console.log('meals page changed to ' + num);
+  };
+
 }]);
 
 var homeCtrl = app.controller('HomeCtrl', ['$scope', function($scope) {

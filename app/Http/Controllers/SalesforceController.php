@@ -25,6 +25,19 @@ class SalesforceController extends Controller
         return $result;
     }
 
+    public function next($nextRecordsUrl)
+    {
+        $nextRecordsUrl = preg_replace("/_/", "/", $nextRecordsUrl);
+        // dd($nextRecordsUrl);
+        try {
+            $result = \Forrest::next($nextRecordsUrl);
+        } catch(ClientException $e) {
+            return "Invalid query: "+$e;
+        }
+        
+        return $result;
+    }
+
     /**
      * Show the profile for the given user.
      *
