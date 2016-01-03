@@ -30,6 +30,10 @@ elixir(function(mix) {
     mix.copy('bower_components/angular-animate/angular-animate.js', 'public/js');
     mix.copy('bower_components/angular-sanitize/angular-sanitize.js', 'public/js');
     mix.copy('bower_components/ng-csv/build/ng-csv.js', 'public/js');
+    mix.copy('bower_components/angular-bootstrap/ui-bootstrap.js', 'public/js');
+    mix.copy('bower_components/angular-bootstrap/ui-bootstrap-tpls.js', 'public/js');
+    mix.copy('bower_components/angularUtils-pagination/dirPagination.js', 'public/js');
+    mix.copy('bower_components/angularUtils-pagination/dirPagination.tpl.html', 'public/js');
 
     //Assets
     mix.copy('bower_components/font-awesome/fonts', 'public/fonts/font-awesome');
