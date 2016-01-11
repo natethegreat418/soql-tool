@@ -27,8 +27,8 @@
         </button>
       </div>
 
-      <div class="pull-right button-group form-inline">
-        <button type="button" class="btn btn-inverse btn-primary form-control" ng-csv="rows" csv-header="getHeader()" fileName="@{{ fileName }}">
+      <div class="pull-right button-group form-inline" ng-controller="ExportCtrl">
+        <button type="button" class="btn btn-inverse btn-primary form-control" ng-csv="getRows()" csv-header="getHeader()" fileName="@{{ fileName }}">
           Export
         </button>
         <input type="text" class="form-control" ng-model="fileName" style="color: black;"  placeholder="File name"/>
@@ -59,7 +59,7 @@
     </form>
   </div>
 
-  <table class="table table-bordered table-hover">
+  <table class="table table-bordered table-hover" ng-controller="FilterCtrl">
     <tr class="table-header">
       <th ng-repeat="column in columns">
         <a href="#" ng-click="order(column)">
