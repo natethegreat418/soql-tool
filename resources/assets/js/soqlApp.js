@@ -1,11 +1,11 @@
 var app = angular.module('soquirrel', ['ngAnimate', 'ngTouch', 'ngSanitize', 'ngCsv', 'angularUtils.directives.dirPagination']);
 
-var queryCtrl = app.controller('QueryCtrl', ['$scope','$http', 'FilterData', function($scope, $http, $filter, FilterData) {
+var queryCtrl = app.controller('QueryCtrl', ['$scope','$http', 'SalesforceData', 'FilterData', function($scope, $http, $filter, SalesforceData, FilterData) {
 
   $scope.queryString = 'SELECT Id, Name, BillingCity FROM Account';
 
-  $scope.columns = [];
-  $scope.rows = [];
+  $scope.columns = SalesforceData.Columns;
+  $scope.rows = SalesforceData.Rows;
   $scope.filtered = FilterData.Rows;
 
   $scope.currentPage = 1;

@@ -1,4 +1,4 @@
-// var app = angular.module('parser-testing', []);
+// var parserTesting = angular.module('parser-testing', []);
  
 // app.controller('MainCtrl', ['$scope', function ($scope) {
 //   $scope.queryObject = {

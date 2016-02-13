@@ -1,4 +1,4 @@
-// var app = angular.module('app-test', ['ngAnimate', 'ngTouch', 'ui.grid']);
+// var appTest = angular.module('app-test', ['ngAnimate', 'ngTouch', 'ui.grid']);
  
 // app.controller('MainCtrl', ['$scope', '$http', 'uiGridConstants', function ($scope, $http, uiGridConstants) {
 //   $scope.columns = [{ field: 'name' }, { field: 'gender' }];
