@@ -45,11 +45,72 @@
 //       $scope.gridOptions.data = data;
 //     });
 // }]);
+<<<<<<< HEAD
 var app = angular.module('soqlTool', ['ngAnimate', 'ngTouch', 'ngSanitize', 'ngCsv', 'angularUtils.directives.dirPagination']);
 
 var queryCtrl = app.controller('QueryCtrl', ['$scope','$http', 'FilterData', function($scope, $http, $filter, FilterData) {
 
   $scope.queryString = 'SELECT Id, Name, BillingCity FROM Account';
+=======
+
+// var parserTest = angular.module('parser-testing', []);
+ 
+// app.controller('MainCtrl', ['$scope', function ($scope) {
+//   $scope.queryObject = {
+//     type: "SELECT",
+//     fields: [
+//         "Id",
+//         "Name"],
+//     sobject: "Account",
+//     availableFields: [],
+//     filters: [
+//       {field:"BillingCity",operator:"=",value:"Boston"},
+//       {field:"Name",operator:"=",value:"Matt"}]
+//   };
+
+//   $scope.query = '';
+
+//   var renderQueryObj = function(){
+//     console.log($scope.queryObject);
+//     $scope.query = $scope.queryObject.type;
+//     $scope.query += " ";
+//     for(i = 0; i < $scope.queryObject.fields.length; i++){
+//       if(i === $scope.queryObject.fields.length - 1){
+//         $scope.query += $scope.queryObject.fields[i];
+//       } else {
+//         $scope.query += $scope.queryObject.fields[i];
+//         $scope.query += ", ";
+//       }
+//     }
+//     $scope.query += "\nFROM ";
+//     $scope.query += $scope.queryObject.sobject;
+//     if($scope.queryObject.filters.length > 0){
+//       for(i = 0; i < $scope.queryObject.filters.length; i++){
+//         if(i === 0){
+//           $scope.query += "\nWHERE ";
+//         } else {
+//           $scope.query += "\n\tAND ";
+//         }
+//         $scope.query += $scope.queryObject.filters[i].field;
+//         $scope.query += " ";
+//         $scope.query += $scope.queryObject.filters[i].operator;
+//         $scope.query += " \'";
+//         $scope.query += $scope.queryObject.filters[i].value;
+//         $scope.query += "\'";
+//       }
+//     }
+//   };
+
+//   renderQueryObj();
+
+// }]);
+var app = angular.module('soquirrel', ['ngAnimate', 'ngTouch', 'ngSanitize', 'ngCsv', 'angularUtils.directives.dirPagination']);
+
+app.controller('QueryCtrl', ['$scope','$http', '$filter', function($scope, $http, $filter) {
+  $scope.queryString = 'SELECT Id, Name, BillingCity FROM Account';
+  $scope.fileName = '';
+  $scope.status = '';
+>>>>>>> master
 
   $scope.columns = [];
   $scope.rows = [];
@@ -60,6 +121,7 @@ var queryCtrl = app.controller('QueryCtrl', ['$scope','$http', 'FilterData', fun
   $scope.pageSize = $scope.pageSizeOptions[0];
 
   $scope.query = function() {
+    $scope.status = 'pending';
     $http.get('api/query/'+$scope.queryString)
     // $http.get('api/testData')
       .success(function(data) {
@@ -76,6 +138,7 @@ var queryCtrl = app.controller('QueryCtrl', ['$scope','$http', 'FilterData', fun
         
         $scope.rows = data.records;
         queryNextHandler(data);
+        $scope.status = 'complete';
     });
   };
 
@@ -174,6 +237,7 @@ var homeCtrl = app.controller('HomeCtrl', ['$scope', function($scope) {
   $scope.hashtag = '#SOQuirreL';
   $scope.summary = 'A SOQL tool that is really swell!';
 }]);
+<<<<<<< HEAD
 
 // var app = angular.module('parser-testing', []);
  
@@ -226,6 +290,8 @@ var homeCtrl = app.controller('HomeCtrl', ['$scope', function($scope) {
 //   renderQueryObj();
 
 // }]);
+=======
+>>>>>>> master
 var lodash = angular.module('lodash', []);
 lodash.factory('_', function() {
   return window._;
