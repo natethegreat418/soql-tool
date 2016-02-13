@@ -15,14 +15,15 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'public/js/angular.js',
+      'bower_components/angular/angular.js',
       'bower_components/angular-mocks/angular-mocks.js',
-      // 'public/js/angular-animate.js',
-      // 'public/js/angular-sanitize.js',
-      // 'public/js/dirPagination.js',
-      // 'public/js/dirPagination.tpl.html',
-      // 'public/js/lodash.js',
-      // 'public/js/ng-csv.js',
+      'public/js/angular-animate.js',
+      'public/js/angular-sanitize.js',
+      'public/js/angular-touch.js',
+      'public/js/dirPagination.js',
+      'public/js/dirPagination.tpl.html',
+      'public/js/lodash.js',
+      'public/js/ng-csv.js',
       'public/js/app.js',
       // 'public/js/*.js',
       // 'public/build/js/*.js',

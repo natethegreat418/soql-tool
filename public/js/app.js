@@ -97,11 +97,12 @@
 //   renderQueryObj();
 
 // }]);
-var soqlApp = angular.module('soqlApp', ['ngAnimate', 'ngTouch', 'ngSanitize', 'ngCsv', 'angularUtils.directives.dirPagination']);
+var app = angular.module('soquirrel', ['ngAnimate', 'ngTouch', 'ngSanitize', 'ngCsv', 'angularUtils.directives.dirPagination']);
 
-var queryCtrl = app.controller('QueryCtrl', ['$scope','$http', '$filter', function($scope, $http, $filter) {
+app.controller('QueryCtrl', ['$scope','$http', '$filter', function($scope, $http, $filter) {
   $scope.queryString = 'SELECT Id, Name, BillingCity FROM Account';
   $scope.fileName = '';
+  $scope.status = '';
 
   $scope.columns = [];
   $scope.rows = [];
@@ -114,6 +115,7 @@ var queryCtrl = app.controller('QueryCtrl', ['$scope','$http', '$filter', functi
   $scope.pageSize = $scope.pageSizeOptions[0];
 
   $scope.query = function() {
+    $scope.status = 'pending';
     $http.get('api/query/'+$scope.queryString)
     // $http.get('api/testData')
       .success(function(data) {
@@ -131,21 +133,18 @@ var queryCtrl = app.controller('QueryCtrl', ['$scope','$http', '$filter', functi
         
         $scope.rows = data.records;
         queryNextHandler(data);
+        $scope.status = 'complete';
     });
   };
 
   var queryMore = function(nextRecordsUrl) {
     $http.get('api/next/'+nextRecordsUrl)
       .success(function(data) {
-        // console.log(data);
         for(i = 0; i < data.records.length; i++){
           delete data.records[i].attributes;
         }
 
         $scope.rows = $scope.rows.concat(data.records);
-
-        // console.log($scope.rows.length);
-        
         queryNextHandler(data);
     });
   };
@@ -154,7 +153,6 @@ var queryCtrl = app.controller('QueryCtrl', ['$scope','$http', '$filter', functi
     if(data.done === false) {
       var nextRecordsUrlEncoded = encodeURI(data.nextRecordsUrl)
         .replace(/\//g, '_');
-      // console.log(nextRecordsUrlEncoded);
       queryMore(nextRecordsUrlEncoded);
     }
   }
@@ -221,6 +219,10 @@ var homeCtrl = app.controller('HomeCtrl', ['$scope', function($scope) {
   $scope.hashtag = '#SOQuirreL';
   $scope.summary = 'A SOQL tool that is really swell!';
 }]);
+var lodash = angular.module('lodash', []);
+lodash.factory('_', function() {
+  return window._;
+});
 app.service('apiService', function ($http, $q) {
 
   this.get = function(route){
@@ -255,8 +257,4 @@ app.controller('MainCtrl', ['$scope', function ($scope) {
   };
 
 }]);
-var lodash = angular.module('lodash', []);
-lodash.factory('_', function() {
-  return window._;
-});
 //# sourceMappingURL=app.js.map
