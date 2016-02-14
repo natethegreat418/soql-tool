@@ -27,7 +27,7 @@ module.exports = function(config) {
       'public/js/app.js',
       // 'public/js/*.js',
       // 'public/build/js/*.js',
-      'tests/angular/*.js'
+      'tests/angular/**/*.js'
     ],
 
 

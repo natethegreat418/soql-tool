@@ -2,7 +2,7 @@
 
 @section('container')
 
-<div class="container" ng-controller="QueryCtrl">
+<div class="container">
   <div class="pull-left">
     <h1>SOQuirreL</h1>
   </div>
@@ -16,7 +16,7 @@
       </li>
     </ul>
   </div>
-  <div>
+  <div ng-controller="QueryCtrl" id="QueryCtrl">
     <form>
 
       <textarea class="form-control" rows="3" ng-model="queryString"></textarea>
@@ -27,8 +27,8 @@
         </button>
       </div>
 
-      <div class="pull-right button-group form-inline">
-        <button type="button" class="btn btn-inverse btn-primary form-control" ng-csv="rows" csv-header="getHeader()" fileName="@{{ fileName }}">
+      <div class="pull-right button-group form-inline" ng-controller="ExportCtrl" id="ExportCtrl">
+        <button type="button" class="btn btn-inverse btn-primary form-control" ng-csv="getRows()" csv-header="getHeaders()" fileName="@{{ fileName }}">
           Export
         </button>
         <input type="text" class="form-control" ng-model="fileName" style="color: black;"  placeholder="File name"/>
@@ -37,20 +37,19 @@
       <br>
       <br>
       <br>
-        
-      <div class="pull-left button-group form-inline">
+      
+      <div class="pull-left button-group form-inline" ng-controller="FilterCtrl" id="FilterCtrl">
         <div class="form-group">
           <label for="search">Filter</label>
-          <input type="text" ng-model="q" class="form-control" id="search" placeholder="Search">
-          <p>@{{ filtered.length }} out of @{{ rows.length }}</p>
+          <input type="text" ng-model="$root.search" class="form-control" id="search" placeholder="Search">
+          <p>@{{ $root.filtered.length }} out of @{{ $root.rows.length }}</p>
         </div>
-        
       </div>
 
-      <div class="pull-right">
+      <div class="pull-right" ng-controller="PaginationCtrl">
         <div class="form-group form-inline">
           <label for="pageSize">Page size</label>
-          <select class="form-control" ng-options="option for option in pageSizeOptions" ng-model="pageSize" id="pageSize">
+          <select class="form-control" ng-options="option for option in pageSizeOptions" ng-model="$root.pageSize" id="pageSize">
           </select>
         </div>
 
@@ -59,7 +58,7 @@
     </form>
   </div>
 
-  <table class="table table-bordered table-hover">
+  <table class="table table-bordered table-hover" ng-controller="TableCtrl" id="TableCtrl">
     <tr class="table-header">
       <th ng-repeat="column in columns">
         <a href="#" ng-click="order(column)">
@@ -68,8 +67,7 @@
         @{{ column }}</a>
       </th>
     </tr>
-    {{-- <tr dir-paginate="row in rows | filter:q | itemsPerPage: pageSize" current-page="currentPage"> --}}
-    <tr dir-paginate="row in filtered = (rows | filter:q) | itemsPerPage: pageSize" current-page="currentPage">
+    <tr dir-paginate="row in $root.filtered = (rows | filter:$root.search) | itemsPerPage: $root.pageSize" current-page="$root.currentPage">
       <td ng-repeat="column in columns">@{{ row[column] }}</td>
     </tr>
   </table>
