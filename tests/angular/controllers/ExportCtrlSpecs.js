@@ -1,22 +1,16 @@
 describe('ExportCtrl', function() {
   'use strict';
 
-  var $scope, $controller, ExportCtrl;
+  var $scope, $controller, $rootScope, ExportCtrl;
 
   beforeEach(module('soquirrel'));
 
-  beforeEach(angular.mock.module({
-    'SalesforceData': function() {
-      return {
-        Columns: ['first','last'],
-        Rows: [{'first':'Morty','last':'Smith'},{'first':'Rick','last':'Sanchez'}],
-        Filtered: [{'first':'Morty','last':'Smith'}]
-      };
-    }
-  }));
-
-  beforeEach(inject(function(_$controller_) {
+  beforeEach(inject(function(_$controller_, _$rootScope_) {
     $controller = _$controller_;
+    $rootScope = _$rootScope_;
+    $rootScope.columns = ['first','last'];
+    $rootScope.rows = [{'first':'Morty','last':'Smith'},{'first':'Rick','last':'Sanchez'}];
+    $rootScope.filtered = [{'first':'Morty','last':'Smith'}];
   }));
 
   describe('exporter', function() {
@@ -30,13 +24,11 @@ describe('ExportCtrl', function() {
     });
     
     it('should get rows', function() {
-      expect($scope.getRows()).toEqual(['first','last']);
-      var prettier = angular.mock.dump($scope);
-      console.log(prettier);
+      expect($scope.getRows()).toEqual([{'first':'Morty','last':'Smith'},{'first':'Rick','last':'Sanchez'}]);
     });
 
     it('should should get columns', function() {
-      expect($scope.getHeaders()).toEqual([{'first':'Morty','last':'Smith'},{'first':'Rick','last':'Sanchez'}]);
+      expect($scope.getHeaders()).toEqual(['first','last']);
     });
   });
 
