@@ -5,6 +5,16 @@ describe('QueryCtrl', function() {
 
   beforeEach(module('soquirrel'));
 
+  beforeEach(angular.mock.module({
+    'SalesforceData': function() {
+      return {
+        Columns: [],
+        Rows: [],
+        Filtered: []
+      };
+    }
+  }));
+
   beforeEach(inject(function(_$controller_) {
     $controller = _$controller_;
   }));
@@ -55,9 +65,6 @@ describe('QueryCtrl', function() {
       expect($scope.status).toEqual('complete');
       expect($scope.rows).toEqual([{'first':'Morty','last':'Smith'},{'first':'Rick','last':'Sanchez'}]);
       expect($scope.columns).toEqual(['first','last']);
-
-      // var prettier = angular.mock.dump($scope);
-      // console.log(prettier);
     });
   });
 
