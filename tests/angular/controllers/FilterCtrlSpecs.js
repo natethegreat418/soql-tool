@@ -3,7 +3,7 @@ describe('FilterCtrl', function() {
 
   var $rootScope, $controller, FilterCtrl;
 
-  beforeEach(module('soquirrel'));
+  beforeEach(module('soqool'));
 
   beforeEach(inject(function(_$controller_, _$rootScope_) {
     $controller = _$controller_;

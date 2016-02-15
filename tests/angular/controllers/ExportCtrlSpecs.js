@@ -3,7 +3,7 @@ describe('ExportCtrl', function() {
 
   var $scope, $controller, $rootScope, ExportCtrl;
 
-  beforeEach(module('soquirrel'));
+  beforeEach(module('soqool'));
 
   beforeEach(inject(function(_$controller_, _$rootScope_) {
     $controller = _$controller_;

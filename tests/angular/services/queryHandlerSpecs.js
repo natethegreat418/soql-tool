@@ -3,7 +3,7 @@ describe('QueryHandler', function() {
 
   var $httpBackend, $rootScope, QueryHandler;
 
-  beforeEach(module('soquirrel'));
+  beforeEach(module('soqool'));
 
   beforeEach(inject(function(_$rootScope_, _$httpBackend_, _QueryHandler_) {
     $rootScope = _$rootScope_;

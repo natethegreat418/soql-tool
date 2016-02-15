@@ -3,7 +3,7 @@ describe('TableCtrl', function() {
 
   var $scope, $rootScope, $controller, $filter, TableCtrl;
 
-  beforeEach(module('soquirrel'));
+  beforeEach(module('soqool'));
 
   beforeEach(inject(function(_$controller_, _$rootScope_, _$filter_) {
     $controller = _$controller_;

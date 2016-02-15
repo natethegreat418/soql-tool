@@ -3,7 +3,7 @@ describe('PaginationCtrl', function() {
 
   var $scope, $rootScope, $controller, PaginationCtrl;
 
-  beforeEach(module('soquirrel'));
+  beforeEach(module('soqool'));
 
   beforeEach(inject(function(_$controller_, _$rootScope_) {
     $controller = _$controller_;

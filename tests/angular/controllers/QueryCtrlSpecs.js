@@ -3,7 +3,7 @@ describe('QueryCtrl', function() {
 
   var $httpBackend, $scope, $rootScope, $controller, QueryCtrl, QueryHandler;
 
-  beforeEach(module('soquirrel'));
+  beforeEach(module('soqool'));
 
   beforeEach(angular.mock.module({
     'QueryHandler': { 
