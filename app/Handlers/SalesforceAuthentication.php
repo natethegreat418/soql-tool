@@ -20,20 +20,13 @@ class SalesforceAuthentication
 
         $identity = Forrest::identity();
 
-        try {
-            $user = User::findOrFail($identity['user_id']);
-            Auth::login($user);
-        } catch(Exception $e) {
-            $user = new User([
-                'id' => $identity['user_id'],
-                'name' => $identity['display_name'],
-                'email' => $identity['email']
-            ]);
+        $user = User::firstOrCreate([
+            'id' => $identity['user_id'],
+            'name' => $identity['display_name'],
+            'email' => $identity['email']
+        ]);
 
-            $user->save();
-
-            Auth::login($user);
-        }
+        Auth::login($user);
         
         $url = Config::get('forrest.authRedirect');
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="soquirrel">
+<html lang="en" ng-app="soqool">
   <head>
     <meta charset="UTF-8">
     <title>Test</title>

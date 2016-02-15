@@ -4,7 +4,7 @@
 
 <div class="container">
   <div class="pull-left">
-    <h1>SOQuirreL</h1>
+    <h1>SOQool</h1>
   </div>
   <div class="pull-right" style="margin-top: 20px;">
     <ul class="list-inline">

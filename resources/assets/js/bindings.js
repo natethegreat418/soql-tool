@@ -4,5 +4,5 @@ window.scope = function(id) {
 }
 
 window.$A = function() {
-    return window.angular.module('soquirrel');
+    return window.angular.module('soqool');
 }

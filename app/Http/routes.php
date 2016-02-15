@@ -12,11 +12,11 @@
 */
 
 Route::get('/', ['as' => 'home', function () {
-    // if (Auth::check()) {
+    if (Auth::check()) {
         return view('home');
-    // } else {
-    //     return view('welcome');
-    // }
+    } else {
+        return view('welcome');
+    }
 }]);
 
 Route::get('login', ['as' => 'login', 'uses' => 'AuthorizeController@login']);
