@@ -19,7 +19,7 @@ Route::get('/', ['as' => 'home', function () {
     }
 }]);
 
-Route::get('login', ['as' => 'login', 'uses' => 'AuthorizeController@login']);
+Route::post('login', ['as' => 'login', 'uses' => 'AuthorizeController@login']);
 Route::get('callback', ['as' => 'callback', 'uses' => 'AuthorizeController@callback']);
 Route::get('logout', ['as' => 'logout', 'uses' => 'AuthorizeController@logout']);
 

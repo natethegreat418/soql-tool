@@ -11,8 +11,14 @@ use Session;
 
 class SalesforceAuthentication
 {
-    public function login() {
-        return Forrest::authenticate();
+    public function login($org) {
+        if($org['type'] == 'custom') {
+            return Forrest::authenticate($org['url']);
+        } else if($org['type'] == 'sandbox') {
+            return Forrest::authenticate('http://test.salesforce.com');
+        } else {
+            return Forrest::authenticate();
+        }
     }
 
     public function callback() {

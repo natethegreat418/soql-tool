@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Handlers\SalesforceAuthentication;
+use Input;
 
 class AuthorizeController extends Controller
 {
@@ -16,7 +17,8 @@ class AuthorizeController extends Controller
     }
 
     public function login() {
-        return $this->salesforceAuth->login();
+        $arguments = Input::all();
+        return $this->salesforceAuth->login($arguments);
     }
 
     public function callback() {
