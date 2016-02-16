@@ -958,12 +958,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/omniphx/forrest.git",
-                "reference": "7ebedae8b2d7eb87a7ce2a6f142ee2df833560ca"
+                "reference": "49414579ee2989ca7d8d7cacab83e66f4a053b41"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/omniphx/forrest/zipball/7ebedae8b2d7eb87a7ce2a6f142ee2df833560ca",
-                "reference": "7ebedae8b2d7eb87a7ce2a6f142ee2df833560ca",
+                "url": "https://api.github.com/repos/omniphx/forrest/zipball/49414579ee2989ca7d8d7cacab83e66f4a053b41",
+                "reference": "49414579ee2989ca7d8d7cacab83e66f4a053b41",
                 "shasum": ""
             },
             "require": {
@@ -1002,7 +1002,7 @@
                 "rest",
                 "salesforce"
             ],
-            "time": "2016-01-30 18:53:34"
+            "time": "2016-02-15 22:25:47"
         },
         {
             "name": "paragonie/random_compat",
