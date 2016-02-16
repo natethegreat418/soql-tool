@@ -5,6 +5,12 @@ app.service('QueryHandler', ['$http','$rootScope', function($http,$rootScope) {
     $http.get('api/query/'+queryString)
     // $http.get('api/testData')
       .success(function(data) {
+        if(Array.isArray(data)) {
+          $rootScope.displayAlert = true;
+          $rootScope.alertMessage = data[0].message.trim();
+        }
+        if(!data.records) return;
+        $rootScope.displayAlert = false;
         for(i = 0; i < data.records.length; i++){
           delete data.records[i].attributes;
         }
@@ -19,7 +25,10 @@ app.service('QueryHandler', ['$http','$rootScope', function($http,$rootScope) {
         $rootScope.rows = data.records;
         queryNextHandler(data);
         $rootScope.status = 'complete';
-    });
+      })
+      .error(function(data) {
+        console.log(data);
+      });
   };
 
   var queryMore = function(nextRecordsUrl) {

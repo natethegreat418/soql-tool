@@ -13,10 +13,10 @@ class SalesforceAPI {
             $result = Forrest::query($query);
         } catch(SalesforceException $e) {
             //log exception
-            throw $e;
+            return $e->getResponse()->json();
         }
         
-        return $result; 
+        return $result;
     }
 
     public function next($nextRecordsUrl)
