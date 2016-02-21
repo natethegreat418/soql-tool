@@ -9,3 +9,6 @@ Homestead.json
 /public/build
 /public/js
 /public/css
+/public/patterns
+/patterns/templates
+/public/fonts
