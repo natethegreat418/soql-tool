@@ -1,54 +1,47 @@
-app.service('QueryHandler', ['$http','$rootScope', function($http,$rootScope) {
+app.service('QueryHandler', ['$http','$rootScope','RecordHandler', function($http,$rootScope,RecordHandler) {
+
+  var records = [];
 
   this.query = function(queryString) {
     $rootScope.status = 'pending';
+    $rootScope.pending = true;
     $http.get('api/query/'+queryString)
-    // $http.get('api/testData')
       .success(function(data) {
+        $rootScope.displayAlert = false;
         if(Array.isArray(data)) {
           $rootScope.displayAlert = true;
           $rootScope.alertMessage = data[0].message.trim();
+          $rootScope.pending = false;
+          return;
         }
-        if(!data.records) return;
-        $rootScope.displayAlert = false;
-        for(i = 0; i < data.records.length; i++){
-          delete data.records[i].attributes;
+        if(data.records === undefined){
+          $rootScope.pending = false;
+          return;
         }
-
-        if(data.records.length !== 0){
-          $rootScope.columns = [];
-          angular.forEach(data.records[0], function(value, key) {
-            $rootScope.columns.push(key);
-          });
-        }
-        
-        $rootScope.rows = data.records;
+        records = data.records;
         queryNextHandler(data);
-        $rootScope.status = 'complete';
+        RecordHandler.process(records);
+        $rootScope.pending = false;
       })
       .error(function(data) {
+        console.log('Error:');
         console.log(data);
+        $rootScope.pending = false;
       });
   };
 
   var queryMore = function(nextRecordsUrl) {
     $http.get('api/next/'+nextRecordsUrl)
       .success(function(data) {
-        for(i = 0; i < data.records.length; i++){
-          delete data.records[i].attributes;
-        }
-
-        $rootScope.rows = $rootScope.rows.concat(data.records);
+        records = records.concat(data.records);
         queryNextHandler(data);
     });
   };
 
   var queryNextHandler = function(data) {
-    if(data.done === false) {
-      var nextRecordsUrlEncoded = encodeURI(data.nextRecordsUrl)
-        .replace(/\//g, '_');
-      queryMore(nextRecordsUrlEncoded);
-    }
+    if(data.done === true) return;
+    var nextRecordsUrlEncoded = encodeURI(data.nextRecordsUrl).replace(/\//g, '_');
+    queryMore(nextRecordsUrlEncoded);
   };
 
 }]);

@@ -9,8 +9,10 @@ describe('TableCtrl', function() {
     $controller = _$controller_;
     $rootScope = _$rootScope_;
     $filter = _$filter_;
-    $rootScope.columns = ['first','last'];
-    $rootScope.rows = [{'first':'Morty','last':'Smith'},{'first':'Rick','last':'Sanchez'}];
+    $rootScope.result = {
+      columns: ['first','last'],
+      records: [{'first':'Morty','last':'Smith'},{'first':'Rick','last':'Sanchez'}]
+    };
     $rootScope.filtered = [{'first':'Morty','last':'Smith'}];
   }));
 
@@ -28,7 +30,7 @@ describe('TableCtrl', function() {
     it('should sort rows by last name', function() {
       $scope.sortReverse = true;
       $scope.order('last');
-      expect($rootScope.rows[0].last).toBe('Sanchez');
+      expect($rootScope.result.records[0].last).toBe('Sanchez');
     });
 
     it('should render caret down', function() {

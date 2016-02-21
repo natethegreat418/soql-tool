@@ -44,8 +44,22 @@ th > a {
     }
 }
 
+.expanded {
+    background-color: darken(#dbedfc, 5%);
+    &:focus,
+    &:hover,
+    &:active {
+        > td {
+            background-color: transparent !important;
+        }
+    }
+}
+
 .table {
     color: black;
+    .table {
+        background-color: #F3F9FE;
+    }
 }
 
 

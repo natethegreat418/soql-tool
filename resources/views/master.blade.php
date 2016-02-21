@@ -8,8 +8,8 @@
       <link rel="stylesheet" href="{{ elixir("css/font-awesome.css") }}">
 
       <script src="{{ asset('js/angular.js') }}"></script>
-      <script src="{{ asset('js/angular-touch.js') }}"></script>
-      <script src="{{ asset('js/angular-animate.js') }}"></script>
+      {{-- <script src="{{ asset('js/angular-touch.js') }}"></script> --}}
+      {{-- <script src="{{ asset('js/angular-animate.js') }}"></script> --}}
       <script src="{{ asset('js/lodash.js') }}"></script>
       <script src="{{ asset('js/angular-sanitize.js') }}"></script>
       <script src="{{ asset('js/ng-csv.js') }}"></script>

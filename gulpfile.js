@@ -40,4 +40,5 @@ elixir(function(mix) {
     mix.copy('bower_components/font-awesome/fonts', 'public/fonts/font-awesome');
     mix.copy('resources/assets/fonts', 'public/fonts');
     mix.copy('resources/assets/patterns', 'public/patterns');
+    mix.copy('resources/assets/js/templates', 'public/templates');
 });
