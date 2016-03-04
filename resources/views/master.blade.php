@@ -2,25 +2,22 @@
 <html lang="en" ng-app="soqool">
   <head>
     <meta charset="UTF-8">
-    <title>Test</title>
-      <title>Laravel</title>
-      <link rel="stylesheet" href="{{ elixir("css/app.css") }}">
-      <link rel="stylesheet" href="{{ elixir("css/font-awesome.css") }}">
-
+    <meta name="viewport" content="
+      width=device-width,
+      initial-scale=1,
+      minimum-scale=1,
+      maximum-scale=1
+    " />
+    <title>SoQool Tool</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/css/responsivelayout.css" type="text/css">
+    <link rel="stylesheet" href="/css/hpstyle.css" type="text/css">
       <script src="{{ asset('js/angular.js') }}"></script>
-      {{-- <script src="{{ asset('js/angular-touch.js') }}"></script> --}}
-      {{-- <script src="{{ asset('js/angular-animate.js') }}"></script> --}}
       <script src="{{ asset('js/lodash.js') }}"></script>
       <script src="{{ asset('js/angular-sanitize.js') }}"></script>
       <script src="{{ asset('js/ng-csv.js') }}"></script>
-      <script src="{{ asset('js/ui-bootstrap.js') }}"></script>
-      <script src="{{ asset('js/ui-bootstrap-tpls.js') }}"></script>
       <script src="{{ asset('js/dirPagination.js') }}"></script>
-      {{-- <script src="{{ asset('js/dirPagination.tpl.html') }}"></script> --}}
       <script src="{{ elixir("js/app.js") }}"></script>
-      <style type="text/css">
-
-      </style>
   </head>
   <body>
     @yield('container')

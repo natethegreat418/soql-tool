@@ -1,0 +1,225 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+    font-size: 80px;
+}
+
+/*Header*/
+
+.headerimg {
+    max-height: 200px;
+    max-width: 200px;
+}
+
+
+.headerwrap {
+    margin-top: auto;
+    background-color: #5EB2F2;
+    text-align: center;
+    color: white;
+}
+
+.separator {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-bottom: solid;
+    border-bottom-color: white;
+    border-bottom-width: thin;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+
+/*Resize a few elements for mobile*/
+
+@media (max-width:400px) {
+    .headerimg {
+        max-height: 50%;
+        max-width: 50%;
+    }
+    h1 {
+        font-size: 70px;
+        margin-top: .2em;
+        margin-bottom: .2em;
+    }
+    .loginoptions {
+        font-size: .8em;
+    }
+    .separator {
+        padding-top: 1em;
+        padding-bottom: 1em;
+        border-bottom: solid;
+        border-bottom-color: white;
+        border-bottom-width: thin;
+        margin-left: 70px;
+        margin-right: 70px;
+    }
+}
+/*Resize a few elements for tablet*/
+
+
+
+/*Login*/
+
+.login-button {
+    background: #FF5DB1;
+    filter: .Microsoft.gradient( startColorstr='#FF5DB1', endColorstr='#E94A86', GradientType=0);
+    padding: 5px 7px;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid #E8124F;
+    width: 120px;
+    height: 40px;
+}
+
+.login-button:hover {
+    background-color: #E94A86;
+}
+
+fieldset {
+    border-style: none;
+}
+
+.login {
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+.loginoptions {
+    padding-bottom: 2em;
+}
+
+
+/*Footer*/
+
+.footerwrap {
+    background-color: white;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    text-align: center;
+}
+
+.contact {
+    font-size: 8em;
+}
+
+.copyright {
+    font-size: .7em;
+}
+
+
+/*SocialMediaIcons*/
+
+@font-face {
+    font-family: 'si';
+    src: url(socicon.woff);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    @font-face {
+        font-family: si;
+        src: url(PATH_TO/socicon.svg) format(svg);
+    }
+}
+
+.soc {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.soc li {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+}
+
+.soc li a {
+    font-family: si!important;
+    font-style: normal;
+    font-weight: 400;
+    box-sizing: border-box;
+    -o-transition: .1s;
+    -ms-transition: .1s;
+    -moz-transition: .1s;
+    -webkit-transition: .1s;
+    transition: .1s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    overflow: hidden;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    position: relative;
+    z-index: 1;
+    width: 46px;
+    height: 46px;
+    line-height: 46px;
+    font-size: 25px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+    margin-right: 12px;
+    color: #ffffff;
+    background-color: none;
+}
+
+.soc-icon-last {
+    margin: 0 !important;
+}
+
+.soc-twitter {
+    background-color: #4da7de;
+}
+
+.soc-twitter:before {
+    content: 'a';
+}
+
+.soc-email2 {
+    background-color: #578AD6;
+}
+
+.soc-email2:before {
+    content: '.';
+}
+
+.soc-google {
+    background-color: #d93e2d;
+}
+
+.soc-google:before {
+    content: 'c';
+}
+
+.soc-linkedin {
+    background-color: #3371b7;
+}
+
+.soc-linkedin:before {
+    content: 'j';
+}
+
+.soc-twitter:hover {
+    background-color: #61bbf2;
+}
+
+.soc-email2:hover {
+    background-color: #6b9eea;
+}
+
+.soc-google:hover {
+    background-color: #ed5241;
+}
+
+.soc-linkedin:hover {
+    background-color: #4785cb;
+}
